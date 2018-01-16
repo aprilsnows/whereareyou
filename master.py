@@ -441,6 +441,8 @@ def train():
 
 
 if __name__ == "__main__":
+    db.create_all() 
+    load_locations()
     generate_tls_certificate = os.environ.get("GENERATE_TLS_CERTIFICATE", True)
     tls_params = {}
     if generate_tls_certificate:
@@ -452,6 +454,4 @@ if __name__ == "__main__":
     schedule.every().day.do(remove_old_detections)
     port = int(os.environ.get("PORT", 5000)) 
     app.run(debug=True, host='0.0.0.0', port=port, threaded=True, **tls_params)
-    
-db.create_all() 
-load_locations()
+
