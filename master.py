@@ -453,5 +453,6 @@ if __name__ == "__main__":
     #     tls_params["ssl_context"] = ('./ssl.crt', './ssl.key')
     schedule.every().day.do(remove_old_detections)
     port = int(os.environ.get("PORT", 5000)) 
-    app.run(debug=True, host='0.0.0.0', port=port, threaded=True, **tls_params)
+    # app.run(debug=True, host='0.0.0.0', port=port, threaded=True, **tls_params)
+    app.run(debug=True, host='0.0.0.0', port=port, threaded=True)
 
