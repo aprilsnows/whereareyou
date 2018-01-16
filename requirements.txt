@@ -15,4 +15,4 @@ matplotlib
 seaborn
 schedule
 flask-compress
-Flask-Cache
+Flask-Caching
