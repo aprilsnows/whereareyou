@@ -450,4 +450,4 @@ if __name__ == "__main__":
             make_ssl_devcert('./ssl', host='localhost')
         tls_params["ssl_context"] = ('./ssl.crt', './ssl.key')
     schedule.every().day.do(remove_old_detections)
-    app.run(debug=False, host='0.0.0.0', threaded=True, **tls_params)
+    app.run(debug=True, host='0.0.0.0', threaded=True, **tls_params)
