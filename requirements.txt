@@ -16,3 +16,4 @@ seaborn
 schedule
 flask-compress
 Flask-Caching
+psycopg2
