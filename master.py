@@ -441,8 +441,8 @@ def train():
 
 
 if __name__ == "__main__":
-    db.create_all() 
-    load_locations()
+    # db.create_all()
+    # load_locations()
     # generate_tls_certificate = os.environ.get("GENERATE_TLS_CERTIFICATE", True)
     # tls_params = {}
     # if generate_tls_certificate:
