@@ -1,14 +1,14 @@
 {
-  "Kitchen": "svg_1",
-  "Duskos Disko": "svg_2",
-  "Raptor Room": "svg_5",
-  "Camelot": "svg_6",
-  "Shoebox": "svg_7",
-  "HR Room": "svg_8",
-  "Sales Room": "svg_9",
-  "Big Room": "svg_11",
-  "Grumpy Room": "svg_12",
-  "Workshop": "svg_13",
-  "Aquarium": "svg_14",
-  "Reception": "svg_15"
+  "cafe": "svg_1",
+  "Tre-stage": "svg_2",
+  "Bad Finance": "svg_5",
+  "EBIT": "svg_6",
+  "3times2": "svg_7",
+  "Transparency": "svg_8",
+  "moroMoro": "svg_9",
+  "MORDOR": "svg_11",
+  "IVORY": "svg_12",
+  "workspace": "svg_13",
+  "guestToilet": "svg_14",
+  "internalToilet": "svg_15"
 }
