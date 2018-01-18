@@ -20,7 +20,7 @@ Inspired by [whereami](https://github.com/kootenpv/whereami). Passive indoor loc
 `cp example.env .env`
 - Adapt `static/office.svg` and `static/office_mapping.json` to your office (we recommend [this](http://editor.method.ac/) online editor). You can test your office mapping at /test_mapping.
 - Create the database initially  
-`python -c "from master import db, load_locations; db.create_all(); load_locations()"`  
+`python -c "from master import db, load_locations; db.drop_all(); db.create_all(); load_locations()"`  
 
 
 ## Usage
