@@ -5,8 +5,7 @@ FROM resin/%%RESIN_MACHINE_NAME%%-python
 # use apt-get if you need to install dependencies,
 # for instance if you need ALSA sound utils, just uncomment the lines below.
 RUN apt-get update && \
-   apt-get install aircrack-ng && apt-get install -yq\
-   aircrack-ng &&\
+   apt-get install -yq aircrack-ng &&\
    sudo airmon-ng start wlan0 &&\
    apt-get clean && rm -rf /var/lib/apt/lists/*
 
