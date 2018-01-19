@@ -20,8 +20,8 @@ load_dotenv(find_dotenv())
 class Slave(object):
     LOG_FILE = 'airodump-log'
     FNULL = open(os.devnull, 'w')
-    AIRODUMP_KILL_COMMAND = 'sudo killall airodump-ng'
-    REMOVE_CSV_FILES_COMMAND = 'sudo rm -rf *.csv'
+    AIRODUMP_KILL_COMMAND = 'killall airodump-ng'
+    REMOVE_CSV_FILES_COMMAND = 'rm -rf *.csv'
     WAITING_DELAY = 15
     UPDATE_INTERVAL = 30
     MAXIMUM_AGE = 5 * 60
@@ -33,7 +33,7 @@ class Slave(object):
         self.slave_id = slave_id
         self.master_address = master_address
         self.access_point_mac = None
-        self.airodump_command = "sudo airodump-ng --output-format csv --write {} {}".format(Slave.LOG_FILE, wifi_interface)
+        self.airodump_command = "airodump-ng --output-format csv --write {} {}".format(Slave.LOG_FILE, wifi_interface)
 
     def start_wifi_monitoring(self):
         print "Starting background Wifi monitoring ..."
