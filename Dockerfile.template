@@ -26,7 +26,6 @@ COPY . ./
 # switch on systemd init system in container
 ENV INITSYSTEM on
 
-RUN airmon-ng start wlan0
-
 # main.py will run when container starts up on the device
-CMD ["python","slave.py", "--network", "$NETWORK", "--wifi-interface", "mon0", "--slave-id", "$SLAVE_ID", "--master-addres", "$MASTER_ADDRESS"]
+# CMD ["python","slave.py", "--network", "$NETWORK", "--wifi-interface", "mon0", "--slave-id", "$SLAVE_ID", "--master-addres", "$MASTER_ADDRESS"]
+CMD airmon-ng start wlan0 && python  slave.py --network $NETWORK --wifi-interface mon0 --slave-id $SLAVE_ID --master-address $MASTER_ADDRESS
