@@ -20,7 +20,7 @@ load_dotenv(find_dotenv())
 class Slave(object):
     LOG_FILE = 'airodump-log'
     FNULL = open(os.devnull, 'w')
-    AIRODUMP_KILL_COMMAND = 'killall airodump-ng'
+    AIRODUMP_KILL_COMMAND = 'pkill airodump-ng'
     REMOVE_CSV_FILES_COMMAND = 'rm -rf *.csv'
     WAITING_DELAY = 15
     UPDATE_INTERVAL = 30
