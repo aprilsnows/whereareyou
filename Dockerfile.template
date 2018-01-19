@@ -9,7 +9,6 @@ RUN apt-get update && \
    apt-get install -yq libpng12-dev &&\
    apt-get install -yq libfreetype6-dev &&\
    sudo apt-get autoremove &&\
-   sudo airmon-ng start wlan0 &&\
    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set our working directory
@@ -28,4 +27,5 @@ COPY . ./
 ENV INITSYSTEM on
 
 # main.py will run when container starts up on the device
+CMD ["airmon-ng", "start", "$INTERFACE"]
 CMD ["python","slave.py", "--network", "$NETWORK", "--wifi-interface", "mon0", "--slave-id", "$SLAVE_ID", "--master-addres", "$MASTER_ADDRESS"]
