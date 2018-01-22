@@ -2,7 +2,7 @@
 
 from dotenv import load_dotenv, find_dotenv
 from flask import Flask, request, redirect, url_for, session, render_template
-from Flask-Caching import Cache
+from flask_caching import Cache
 from flask_compress import Compress
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
 from flask_sslify import SSLify
