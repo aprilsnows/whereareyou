@@ -441,8 +441,6 @@ def train():
 
 
 if __name__ == "__main__":
-    # db.create_all()
-    # load_locations()
     # generate_tls_certificate = os.environ.get("GENERATE_TLS_CERTIFICATE", True)
     # tls_params = {}
     # if generate_tls_certificate:
@@ -452,7 +450,5 @@ if __name__ == "__main__":
     #         make_ssl_devcert('./ssl', host='localhost')
     #     tls_params["ssl_context"] = ('./ssl.crt', './ssl.key')
     schedule.every().day.do(remove_old_detections)
-    port = int(os.environ.get("PORT", 5000)) 
-    # app.run(debug=True, host='0.0.0.0', port=port, threaded=True, **tls_params)
-    app.run(debug=True, host='0.0.0.0', port=port, threaded=True)
-
+    # app.run(debug=False, host='0.0.0.0', threaded=True, **tls_params)
+    app.run(debug=True, host='0.0.0.0', threaded=True)

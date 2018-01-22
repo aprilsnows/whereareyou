@@ -2,7 +2,7 @@
 
 from dotenv import load_dotenv, find_dotenv
 from flask import Flask, request, redirect, url_for, session, render_template
-from flask_caching import Cache
+from Flask-Caching import Cache
 from flask_compress import Compress
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
 from flask_sslify import SSLify
@@ -20,10 +20,8 @@ COMPRESS_MIN_SIZE = 500
 load_dotenv(find_dotenv())
 COMPANY_EMAIL = "@futurice.com"
 
-# app = Flask(__name__)
 app = Flask(__name__, static_url_path='', static_folder='static')
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.getcwd() + '/database.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.getcwd() + '/database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 sslify = SSLify(app)
@@ -82,7 +80,7 @@ class Auth:
     CLIENT_ID = os.environ.get('CLIENT_ID', None)
     CLIENT_SECRET = os.environ.get('CLIENT_SECRET', None)
     HOST = os.environ.get('HOST', 'localhost:5000')
-    REDIRECT_URI = 'https://{host}/gCallback'.format(host=HOST)
+    REDIRECT_URI = 'http://{host}/gCallback'.format(host=HOST)
     AUTH_URI = 'https://accounts.google.com/o/oauth2/auth'
     TOKEN_URI = 'https://accounts.google.com/o/oauth2/token'
     USER_INFO = 'https://www.googleapis.com/userinfo/v2/me'
