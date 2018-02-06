@@ -28,4 +28,4 @@ ENV INITSYSTEM on
 
 # main.py will run when container starts up on the device
 # CMD ["python","slave.py", "--network", "$NETWORK", "--wifi-interface", "mon0", "--slave-id", "$SLAVE_ID", "--master-addres", "$MASTER_ADDRESS"]
-CMD airmon-ng start wlan0 && python  slave.py --network $NETWORK --wifi-interface mon0 --slave-id $SLAVE_ID --master-address $MASTER_ADDRESS
+CMD airmon-ng start $INTERFACE && python  slave.py --network $NETWORK --wifi-interface mon0 --slave-id $SLAVE_ID --master-address $MASTER_ADDRESS
