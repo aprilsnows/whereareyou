@@ -17,3 +17,4 @@ schedule
 flask-compress
 Flask-Caching
 psycopg2
+paho-mqtt

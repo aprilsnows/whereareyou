@@ -15,6 +15,7 @@ import pandas as pd
 import sys
 import traceback
 from xml.dom import minidom
+import paho.mqtt.publish as publish
 
 AVATAR_WIDTH_HEIGHT = 25
 OFFICE_MAPPING_PATH = 'static/office_mapping.json'
@@ -439,6 +440,7 @@ def train():
         train_models(training_data)
     return "Trained model successfully"
 
+publish.single("/tammerforce-iot/locations/", str(get_current_locations()), hostname="tammmerforce-mqtt-server.herokuapp.com", transport="websockets", port=80)
 
 if __name__ == "__main__":
     # generate_tls_certificate = os.environ.get("GENERATE_TLS_CERTIFICATE", True)
