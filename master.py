@@ -16,6 +16,7 @@ import sys
 import traceback
 from xml.dom import minidom
 import paho.mqtt.publish as publish
+from treading import Timer
 
 AVATAR_WIDTH_HEIGHT = 25
 OFFICE_MAPPING_PATH = 'static/office_mapping.json'
@@ -24,6 +25,9 @@ OLD_TIME_DELTA_DAYS = 1
 OLD_TIME_DELTA_MINUTES = 5
 CACHE_SHORT_TIME = 10
 CACHE_LONG_TIME = 60
+MQTT_BROKER_URL = 'tammmerforce-mqtt-server.herokuapp.com'
+PUBLISH_LOCATION_TOPIC = '/tammerforce-iot/locations/'
+
 
 
 def remove_old_detections():
@@ -440,7 +444,13 @@ def train():
         train_models(training_data)
     return "Trained model successfully"
 
-publish.single("/tammerforce-iot/locations/", str(get_current_locations()), hostname="tammmerforce-mqtt-server.herokuapp.com", transport="websockets", port=80)
+# publish location to mqtt server every 3 seconds
+def publishLocations():
+    publish.single(PUBLISH_LOCATION_TOPIC, str(get_current_locations()), hostname=MQTT_BROKER_URL, transport="websockets", port=80)
+    Timer(3.0, publishLocations).start()
+
+Timer(3.0, publishLocations).start()
+
 
 if __name__ == "__main__":
     # generate_tls_certificate = os.environ.get("GENERATE_TLS_CERTIFICATE", True)
