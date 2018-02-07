@@ -16,7 +16,7 @@ import sys
 import traceback
 from xml.dom import minidom
 import paho.mqtt.publish as publish
-from treading import Timer
+from threading import Timer
 
 AVATAR_WIDTH_HEIGHT = 25
 OFFICE_MAPPING_PATH = 'static/office_mapping.json'
