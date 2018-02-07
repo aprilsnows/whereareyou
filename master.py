@@ -446,7 +446,7 @@ def train():
 
 # publish location to mqtt server every 3 seconds
 def publishLocations():
-    publish.single(PUBLISH_LOCATION_TOPIC, str(get_current_locations()), hostname=MQTT_BROKER_URL, transport="websockets", port=80)
+    publish.single(PUBLISH_LOCATION_TOPIC, str(json.dumps(get_current_locations())), hostname=MQTT_BROKER_URL, transport="websockets", port=80)
     Timer(3.0, publishLocations).start()
 
 Timer(3.0, publishLocations).start()
